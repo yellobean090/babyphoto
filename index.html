@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Memories – Baby Birth Frames</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blush: #FFD6E0;
+    --peach: #FFAB91;
+    --mint: #B2EBD4;
+    --sky: #B3E5FC;
+    --lavender: #E1BEE7;
+    --cream: #FFF8F0;
+    --gold: #F9A825;
+    --text: #4A3728;
+    --soft: #9E8A7E;
+    --pink: #E91E8C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 10% 20%, rgba(255,214,224,.45) 0%, transparent 35%),
+      radial-gradient(circle at 85% 10%, rgba(179,229,252,.4) 0%, transparent 30%),
+      radial-gradient(circle at 70% 80%, rgba(178,235,212,.4) 0%, transparent 35%),
+      radial-gradient(circle at 15% 85%, rgba(225,190,231,.4) 0%, transparent 30%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    position: relative;
+    text-align: center;
+    padding: 60px 20px 40px;
+    z-index: 1;
+  }
+  .brand-icon { font-size: 3.4rem; animation: float 3s ease-in-out infinite; display: inline-block; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,6vw,3.6rem); color:var(--text); line-height:1.1; margin-top:10px; }
+  header h1 span { color:var(--pink); font-style:italic; }
+  header p.tagline { margin-top:12px; font-size:1.05rem; color:var(--soft); font-weight:600; letter-spacing:.5px; }
+  .ribbon { display:inline-block; margin-top:18px; background:linear-gradient(135deg,#E91E8C,#FF6B9D); color:#fff; padding:8px 28px; border-radius:50px; font-size:.9rem; font-weight:800; letter-spacing:.5px; box-shadow:0 4px 14px rgba(233,30,140,.3); }
+  .stars { position:absolute; font-size:1.4rem; animation:twinkle 2s ease-in-out infinite alternate; pointer-events:none; }
+  @keyframes twinkle { from{opacity:.3;transform:scale(.85)} to{opacity:1;transform:scale(1.1)} }
+
+  /* ─── SECTIONS ─── */
+  section { position:relative; z-index:1; padding:0 16px 50px; max-width:960px; margin:0 auto; }
+  section h2 { font-family:'Playfair Display',serif; font-size:1.75rem; text-align:center; margin-bottom:26px; color:var(--text); }
+  section h2 em { color:var(--pink); font-style:italic; }
+
+  /* ─── PRICING ─── */
+  .pricing-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(148px,1fr)); gap:16px; }
+  .price-card { background:#fff; border-radius:22px; padding:22px 14px 18px; text-align:center; box-shadow:0 4px 20px rgba(74,55,40,.08); border:2px solid transparent; transition:all .25s ease; cursor:default; position:relative; overflow:hidden; }
+  .price-card::before { content:''; position:absolute; top:-30px; left:-30px; width:80px; height:80px; border-radius:50%; opacity:.18; }
+  .price-card:nth-child(1)::before{background:var(--blush)} .price-card:nth-child(2)::before{background:var(--sky)} .price-card:nth-child(3)::before{background:var(--mint)} .price-card:nth-child(4)::before{background:var(--lavender)} .price-card:nth-child(5)::before{background:var(--peach)}
+  .price-card:hover { transform:translateY(-6px); box-shadow:0 10px 30px rgba(233,30,140,.15); border-color:#FF6B9D; }
+  .price-card .size { font-size:.8rem; font-weight:700; color:var(--soft); letter-spacing:1px; text-transform:uppercase; }
+  .price-card .price { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:700; color:var(--pink); margin:6px 0 2px; }
+  .price-card .price sup { font-size:1rem; }
+  .price-card .emoji { font-size:1.6rem; margin-bottom:6px; display:block; }
+  .popular-badge { position:absolute; top:10px; right:-1px; background:linear-gradient(135deg,var(--gold),#FFB300); color:#fff; font-size:.65rem; font-weight:800; padding:3px 10px; border-radius:4px 0 0 4px; letter-spacing:.5px; text-transform:uppercase; }
+
+  /* ─── GALLERY ─── */
+  .gallery-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  @media(min-width:700px){ .gallery-wrap { grid-template-columns: repeat(4,1fr); } }
+
+  .gallery-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(74,55,40,.13);
+    transition: transform .3s ease, box-shadow .3s ease;
+    cursor: pointer;
+    aspect-ratio: 3/4;
+    border: 3px solid #fff;
+  }
+  .gallery-item:hover { transform: translateY(-8px) rotate(1deg); box-shadow: 0 16px 40px rgba(233,30,140,.2); }
+  .gallery-item:nth-child(even):hover { transform: translateY(-8px) rotate(-1deg); }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s ease;
+  }
+  .gallery-item:hover img { transform: scale(1.05); }
+
+  .gallery-item .label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(74,55,40,.85), transparent);
+    color: #fff;
+    font-size: .78rem;
+    font-weight: 800;
+    padding: 20px 10px 10px;
+    text-align: center;
+    letter-spacing: .3px;
+  }
+
+  .gallery-note {
+    text-align: center;
+    margin-top: 18px;
+    color: var(--soft);
+    font-size: .9rem;
+    font-weight: 600;
+  }
+
+  /* ─── LIGHTBOX ─── */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(30,10,20,.88);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: min(420px, 90vw);
+    max-height: 88vh;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    animation: popIn .3s ease;
+  }
+  @keyframes popIn { from{transform:scale(.8);opacity:0} to{transform:scale(1);opacity:1} }
+  .lightbox-close {
+    position: absolute;
+    top: 18px; right: 22px;
+    background: rgba(255,255,255,.2);
+    border: none;
+    color: #fff;
+    font-size: 1.6rem;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,.35); }
+
+  /* ─── INCLUDES ─── */
+  .includes-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:14px; }
+  .include-chip { background:#fff; border-radius:16px; padding:16px 14px; display:flex; align-items:center; gap:10px; box-shadow:0 3px 14px rgba(74,55,40,.07); font-size:.93rem; font-weight:700; }
+  .include-chip .ic { font-size:1.5rem; }
+
+  /* ─── FORM ─── */
+  .form-card { background:#fff; border-radius:28px; padding:36px 28px; box-shadow:0 6px 36px rgba(74,55,40,.1); max-width:620px; margin:0 auto; }
+  .form-card h2 { margin-bottom:24px; }
+  .form-row { margin-bottom:18px; }
+  label { display:block; font-size:.85rem; font-weight:800; color:var(--soft); letter-spacing:.5px; text-transform:uppercase; margin-bottom:6px; }
+  label span { margin-right:5px; }
+  input, select, textarea { width:100%; padding:12px 16px; border:2px solid #F0E6E0; border-radius:14px; font-family:'Nunito',sans-serif; font-size:.97rem; color:var(--text); background:var(--cream); transition:border .2s; outline:none; }
+  input:focus, select:focus, textarea:focus { border-color:#FF6B9D; background:#fff; }
+  textarea { resize:vertical; min-height:80px; }
+  .optional-tag { background:var(--mint); color:#2E7D55; font-size:.7rem; font-weight:800; padding:2px 8px; border-radius:20px; margin-left:6px; vertical-align:middle; text-transform:uppercase; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .submit-btn { width:100%; margin-top:10px; padding:16px; background:linear-gradient(135deg,#E91E8C,#FF6B9D); color:#fff; font-family:'Nunito',sans-serif; font-size:1.1rem; font-weight:800; border:none; border-radius:16px; cursor:pointer; box-shadow:0 6px 20px rgba(233,30,140,.35); letter-spacing:.5px; transition:transform .2s, box-shadow .2s; }
+  .submit-btn:hover { transform:translateY(-3px); box-shadow:0 10px 28px rgba(233,30,140,.45); }
+  .submit-btn:active { transform:translateY(0); }
+  .notice { margin-top:16px; background:#FFF3E0; border-left:4px solid var(--gold); border-radius:10px; padding:12px 16px; font-size:.88rem; color:#795548; font-weight:600; }
+  .notice strong { color:#E65100; }
+
+  /* ─── TOAST ─── */
+  .toast { display:none; position:fixed; bottom:30px; left:50%; transform:translateX(-50%) translateY(20px); background:linear-gradient(135deg,#43A047,#66BB6A); color:#fff; padding:14px 28px; border-radius:50px; font-weight:800; font-size:1rem; box-shadow:0 8px 24px rgba(67,160,71,.4); z-index:999; }
+
+  footer { position:relative; z-index:1; text-align:center; padding:30px 20px 40px; color:var(--soft); font-size:.85rem; font-weight:600; }
+
+  @media(max-width:520px) {
+    .two-col { grid-template-columns:1fr; }
+    .form-card { padding:24px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" style="top:90px;left:5%">✨</div>
+<div class="stars" style="top:180px;right:7%;animation-delay:.6s">⭐</div>
+<div class="stars" style="top:320px;left:3%;animation-delay:1s">💫</div>
+<div class="stars" style="top:500px;right:4%;animation-delay:.3s">✨</div>
+
+<!-- HERO -->
+<header>
+  <div class="brand-icon">🍼</div>
+  <h1>Little <span>Memories</span><br>Baby Birth Frames</h1>
+  <p class="tagline">Cherish every tiny detail of your precious arrival 🌸</p>
+  <div class="ribbon">🎀 Customized &amp; Delivered to Your Door</div>
+</header>
+
+<!-- PRICING -->
+<section>
+  <h2>Choose Your <em>Frame Size</em> 🖼️</h2>
+  <div class="pricing-grid">
+    <div class="price-card"><span class="emoji">🌸</span><div class="size">8 × 12 in</div><div class="price"><sup>₹</sup>299</div></div>
+    <div class="price-card"><span class="emoji">🌼</span><div class="size">9 × 13 in</div><div class="price"><sup>₹</sup>349</div></div>
+    <div class="price-card"><div class="popular-badge">⭐ Popular</div><span class="emoji">🌺</span><div class="size">10 × 14 in</div><div class="price"><sup>₹</sup>399</div></div>
+    <div class="price-card"><span class="emoji">🌷</span><div class="size">12 × 18 in</div><div class="price"><sup>₹</sup>499</div></div>
+    <div class="price-card"><span class="emoji">👑</span><div class="size">14 × 20 in</div><div class="price"><sup>₹</sup>599</div></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <h2>Our <em>Recent Work</em> 💕</h2>
+  <div class="gallery-wrap">
+    <div class="gallery-item" onclick="openLightbox('img1')">
+      <img id="img1" src="img1.jpeg" alt="Nakshatra birth frame">
+      <div class="label">✨ Nakshatra · May 2025</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox('img2')">
+      <img id="img2" src="img2.jpeg" alt="Dhruthishree birth frame">
+      <div class="label">👑 Dhruthishree · Mar 2025</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox('img3')">
+      <img id="img3" src="img3.jpeg" alt="Hanvika Sri birth frame">
+      <div class="label">🐘 Hanvika Sri · Nov 2024</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox('img4')">
+      <img id="img4" src="img4.jpeg" alt="Riyansh Dangi birth frame">
+      <div class="label">🌸 Riyansh · June 2025</div>
+    </div>
+  </div>
+  <p class="gallery-note">👆 Tap any frame to see it up close</p>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="Frame preview">
+</div>
+
+<!-- WHAT'S INCLUDED -->
+<section>
+  <h2>What Goes On Your <em>Frame?</em> 💕</h2>
+  <div class="includes-grid">
+    <div class="include-chip"><span class="ic">👶</span> Baby's Name</div>
+    <div class="include-chip"><span class="ic">⚖️</span> Baby's Weight</div>
+    <div class="include-chip"><span class="ic">⏰</span> Time of Birth</div>
+    <div class="include-chip"><span class="ic">📅</span> Date of Birth</div>
+    <div class="include-chip"><span class="ic">🏥</span> Hospital Name</div>
+    <div class="include-chip"><span class="ic">🩸</span> Blood Group</div>
+    <div class="include-chip"><span class="ic">🖋️</span> Parents' Names</div>
+    <div class="include-chip"><span class="ic">📸</span> Baby's Photo</div>
+    <div class="include-chip"><span class="ic">📸</span> Parents' Photo</div>
+  </div>
+</section>
+
+<!-- ORDER FORM -->
+<section>
+  <div class="form-card">
+    <h2>Place Your <em>Order</em> 🎀</h2>
+
+    <div class="form-row">
+      <label><span>🖼️</span> Frame Size</label>
+      <select>
+        <option value="">– Select a size –</option>
+        <option>8×12 Inches — ₹299</option>
+        <option>9×13 Inches — ₹349</option>
+        <option>10×14 Inches — ₹399 ⭐ Popular</option>
+        <option>12×18 Inches — ₹499</option>
+        <option>14×20 Inches — ₹599</option>
+      </select>
+    </div>
+
+    <div class="two-col">
+      <div class="form-row"><label><span>👶</span> Baby's Name</label><input type="text" placeholder="e.g. Aryan Kumar"></div>
+      <div class="form-row"><label><span>⚖️</span> Baby's Weight</label><input type="text" placeholder="e.g. 3.2 kg"></div>
+    </div>
+    <div class="two-col">
+      <div class="form-row"><label><span>📅</span> Date of Birth</label><input type="date"></div>
+      <div class="form-row"><label><span>⏰</span> Time of Birth</label><input type="time"></div>
+    </div>
+    <div class="two-col">
+      <div class="form-row"><label><span>🏥</span> Hospital Name</label><input type="text" placeholder="e.g. City Hospital"></div>
+      <div class="form-row">
+        <label><span>🩸</span> Blood Group <span class="optional-tag">Optional</span></label>
+        <select><option value="">– Select –</option><option>A+</option><option>A−</option><option>B+</option><option>B−</option><option>O+</option><option>O−</option><option>AB+</option><option>AB−</option></select>
+      </div>
+    </div>
+    <div class="form-row"><label><span>🖋️</span> Parents' Names</label><input type="text" placeholder="e.g. Rahul & Priya Kumar"></div>
+    <div class="two-col">
+      <div class="form-row"><label><span>📸</span> Baby's Picture</label><input type="file" accept="image/*"></div>
+      <div class="form-row"><label><span>📸</span> Parents' Picture</label><input type="file" accept="image/*"></div>
+    </div>
+    <div class="form-row"><label><span>📦</span> Delivery Address</label><textarea placeholder="Full address with landmark..."></textarea></div>
+    <div class="two-col">
+      <div class="form-row"><label><span>📮</span> Pincode</label><input type="text" placeholder="e.g. 400001" maxlength="6"></div>
+      <div class="form-row"><label><span>📱</span> Contact Number</label><input type="tel" placeholder="e.g. 98765 43210"></div>
+    </div>
+
+    <button class="submit-btn" onclick="handleOrder()">💌 Send My Order Details</button>
+
+    <div class="notice">
+      <strong>⚠️ Please note:</strong> Any changes must be requested within 2 hours of placing your order. Please <strong>do not call</strong> — send your details and wait for our reply. 🙏
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="font-size:1.2rem">🎀 👶 🌸 💕 ✨</div>
+  <p style="margin-top:10px">Made with love for every new beginning &nbsp;|&nbsp; Little Memories © 2025</p>
+</footer>
+
+<div class="toast" id="toast">🎉 Order sent! We'll get back to you shortly 💕</div>
+
+<script>
+  function openLightbox(imgId) {
+    const src = document.getElementById(imgId).src;
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+  function handleOrder() {
+    const toast = document.getElementById('toast');
+    toast.style.display = 'block';
+    setTimeout(() => { toast.style.display = 'none'; }, 3800);
+  }
+</script>
+</body>
+</html>
